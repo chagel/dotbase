@@ -16,6 +16,7 @@ vim.o.hlsearch = true
 vim.o.incsearch = true
 vim.o.scrolloff = 8
 vim.o.colorcolumn = "80"
+vim.o.conceallevel = 2
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.updatetime = 100
