@@ -3,7 +3,7 @@ return {
   { 'slim-template/vim-slim' },
   {
     'dense-analysis/ale',
-    enabled = false,
+    enabled = true,
     config = function()
         -- Configuration goes here.
         local g = vim.g
@@ -14,6 +14,13 @@ return {
             ruby = {'rubocop', 'ruby'},
             lua = {'lua_language_server'}
         }
+
+        g.ale_fixers = {
+            ruby = {'rubocop'},
+            lua = {'lua_format'}
+        }
+
+        vim.api.nvim_set_keymap('n', '<leader>cf', ':ALEFix<CR>', { noremap = true, silent = true })
     end
   },
   { -- Autocompletion
