@@ -27,7 +27,7 @@ return {
       workspaces = {
         {
           name = "personal",
-          path = "~/gdc/Sketch/obsidian",
+          path = "~/Cloud/Sketch/obsidian",
         },
       },
 
