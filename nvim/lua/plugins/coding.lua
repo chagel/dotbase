@@ -75,30 +75,12 @@ return {
       }
     end,
   },
-  {
+ {
     "yetone/avante.nvim",
     event = "VeryLazy",
+    lazy = false,
     opts = {
       provider = "openai", -- "claude" or "openai" or "azure"
-      openai = {
-        endpoint = "https://api.openai.com",
-        model = "gpt-4o",
-        temperature = 0,
-        max_tokens = 4096,
-      },
-      azure = {
-        endpoint = "", -- Example: "https://<your-resource-name>.openai.azure.com"
-        deployment = "", -- Azure deployment name (e.g., "gpt-4o", "my-gpt-4o-deployment")
-        api_version = "2024-06-01",
-        temperature = 0,
-        max_tokens = 4096,
-      },
-      claude = {
-        endpoint = "https://api.anthropic.com",
-        model = "claude-3-5-sonnet-20240620",
-        temperature = 0,
-        max_tokens = 4096,
-      },
       highlights = {
         diff = {
           current = "DiffText", -- need have background color
@@ -116,19 +98,40 @@ return {
           prev = "[x",
         },
       },
-
     },
-    build = "make",
+    build = ":AvanteBuild",
     dependencies = {
-      "nvim-tree/nvim-web-devicons",
-      {
-        "grapp-dev/nui-components.nvim",
-        dependencies = {
-          "MunifTanjim/nui.nvim"
-        }
-      },
+      "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
-      "MeanderingProgrammer/render-markdown.nvim",
+      "MunifTanjim/nui.nvim",
+      --- The below dependencies are optional,
+      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      --- "zbirenbaum/copilot.lua", -- for providers='copilot'
+      {
+        -- support for image pasting
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          -- recommended settings
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+            -- required for Windows users
+            use_absolute_path = true,
+          },
+        },
+      },
+      {
+        -- Make sure to setup it properly if you have lazy=true
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
     },
   }
 }
