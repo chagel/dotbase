@@ -180,7 +180,7 @@ return {
         'stylua',
         'solargraph',
         'rubocop',
-        'tsserver',
+        'ts_ls',
         'pyright',
         'tailwindcss',
       })
