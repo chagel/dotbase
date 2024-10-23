@@ -134,6 +134,7 @@ return {
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      local lspconfig = require('lspconfig')
       local servers = {
         -- clangd = {},
         -- gopls = {},
@@ -148,7 +149,25 @@ return {
         -- tsserver = {},
         --
         --
-        solargraph = {},
+        solargraph = {
+          cmd = { os.getenv("HOME") .. "/.rbenv/shims/solargraph", "stdio" },
+          root_dir = lspconfig.util.root_pattern("Gemfile", ".git", "."),
+          settings = {
+            solargraph = {
+              autoformat = true,
+              completion = true,
+              diagnostics = true,
+              folding = true,
+              references = true,
+              rename = true,
+              symbols = true,
+            },
+          },
+        },
+        rubocop = {
+          cmd = { "bundle", "exec", "rubocop", "--lsp" },
+          root_dir = lspconfig.util.root_pattern("Gemfile", ".git", "."),
+        },
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
