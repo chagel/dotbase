@@ -39,3 +39,5 @@ quickmarks
 QtProject.conf
 configs/qutebrowser/bookmarks/urls
 configs/qutebrowser/autoconfig.yml
+
+fish/fish_variables
