@@ -54,3 +54,4 @@ abbr vg vim Gemfile
 abbr vim nvim
 abbr vit vim ~/.tmux.conf
 abbr ws ruby -run -ehttpd . -p 8000
+abbr gct "git diff HEAD | llm -t git | git commit -e -F -"
