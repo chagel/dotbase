@@ -20,8 +20,8 @@ setup:
 	## link fish 
 	@ln -vsfn ${BASE}/dotbase/fish ${HOME}/.config/fish
 	@ln -vsfn ${BASE}/configs/fish/user.fish ${HOME}/.config/fish/user.fish
-	## link kitty 
-	@ln -vsfn ${BASE}/dotbase/kitty ${HOME}/.config/kitty
+	## link ghostty 
+	@ln -vsfn ${BASE}/dotbase/ghostty ${HOME}/.config/ghostty
 	## config tmux 
 	@mkdir -pv ${HOME}/.tmux/plugins
 	@if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then \
