@@ -19,6 +19,7 @@ setup:
 	@ln -vsf ${BASE}/dotbase/tmux/tmux.conf ${HOME}/.tmux.conf
 	## link fish 
 	@ln -vsfn ${BASE}/dotbase/fish ${HOME}/.config/fish
+	@ln -vsfn ${BASE}/configs/fish/user.fish ${HOME}/.config/fish/user.fish
 	## link kitty 
 	@ln -vsfn ${BASE}/dotbase/kitty ${HOME}/.config/kitty
 	## config tmux 

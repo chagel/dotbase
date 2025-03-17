@@ -5,13 +5,18 @@ return {
     'dense-analysis/ale',
     enabled = true,
     config = function()
-      -- Configuration goes here.
       local g = vim.g
-
       g.ale_ruby_rubocop_auto_correct_all = 1
-      g.ale_linters = { ruby = {'rubocop', 'ruby'}, lua = {'lua_language_server'} }
-      g.ale_fixers = { ruby = {'rubocop'}, lua = {'lua_format'} }
-
+      g.ale_linters = {
+        ruby = {'rubocop', 'ruby'},
+        lua = {'lua_language_server'}
+      }
+      g.ale_fixers = {
+        ruby = {'rubocop', 'remove_trailing_lines', 'trim_whitespace'},
+        lua = {'lua-format','remove_trailing_lines', 'trim_whitespace'},
+        javscript = {'prettier', 'eslint', 'remove_trailing_lines', 'trim_whitespace'},
+        ['*'] = {'remove_trailing_lines', 'trim_whitespace'},
+      }
       vim.api.nvim_set_keymap('n', '<leader>cf', ':ALEFix<CR>', { noremap = true, silent = true })
     end
   },
@@ -133,5 +138,22 @@ return {
         ft = { "markdown", "Avante" },
       },
     },
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    lazy = true,
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    keys = {
+      { "<leader>g", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    }
   }
 }

@@ -7,4 +7,4 @@ window-padding-balance = true
 
 macos-titlebar-style = hidden
 keybind = cmd+|=toggle_quick_terminal
-keybind = performable:ctrl+c=copy_to_clipboard
+# keybind = performable:ctrl+c=copy_to_clipboard

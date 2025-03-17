@@ -6,12 +6,8 @@ if status is-login
     # Commands to run in login sessions can go here
 end
 
-fish_add_path $HOME/Dotmac/scripts
-fish_add_path $HOME/.local/bin
-fish_add_path /opt/homebrew/bin
-fish_add_path /opt/homebrew/Caskroom/miniconda/base/bin
-
 source $HOME/.config/fish/aliases.fish
+source $HOME/.config/fish/user.fish
 
 set -gx EDITOR vim
 set -gx GPG_TTY (tty)
