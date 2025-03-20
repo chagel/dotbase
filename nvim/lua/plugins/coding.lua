@@ -81,11 +81,19 @@ return {
     end,
   },
  {
+    -- Mar 19, 2025
+    -- https://github.com/yetone/avante.nvim?tab=readme-ov-file#installation
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
     opts = {
-      provider = "openai", -- "claude" or "openai" or "azure"
+      provider = "claude", -- "claude" or "openai" or "azure"
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        model = "claude-3-7-sonnet-20250219",
+        temperature = 0,
+        max_tokens = 4096,
+      },
       highlights = {
         diff = {
           current = "DiffText", -- need have background color
@@ -104,33 +112,13 @@ return {
         },
       },
     },
-    build = ":AvanteBuild",
+    build = "make",
     dependencies = {
+      "nvim-treesitter/nvim-treesitter",
       "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      --- The below dependencies are optional,
-      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      --- "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
-        -- support for image pasting
-        "HakonHarnes/img-clip.nvim",
-        event = "VeryLazy",
-        opts = {
-          -- recommended settings
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-            -- required for Windows users
-            use_absolute_path = true,
-          },
-        },
-      },
-      {
-        -- Make sure to setup it properly if you have lazy=true
         'MeanderingProgrammer/render-markdown.nvim',
         opts = {
           file_types = { "markdown", "Avante" },
@@ -138,6 +126,15 @@ return {
         ft = { "markdown", "Avante" },
       },
     },
+    system_prompt = function()
+      local hub = require("mcphub").get_hub_instance()
+      return hub:get_active_servers_prompt()
+    end,
+    custom_tools = function()
+      return {
+        require("mcphub.extensions.avante").mcp_tool(),
+      }
+    end
   },
   {
     "kdheepak/lazygit.nvim",
@@ -155,5 +152,33 @@ return {
     keys = {
       { "<leader>g", "<cmd>LazyGit<cr>", desc = "LazyGit" }
     }
+  },
+  {
+    "ravitemer/mcphub.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    -- cmd = "MCPHub", -- lazily start the hub when `MCPHub` is called
+    build = "npm install -g mcp-hub@latest",
+    config = function()
+      require("mcphub").setup({
+        port = 3333,  -- Port for MCP Hub server
+        config = vim.fn.expand("~/.mcpservers.json"),  -- Absolute path to config file
+
+        -- Optional options
+        on_ready = function(hub)
+          -- Called when hub is ready
+        end,
+        on_error = function(err)
+          -- Called on errors
+        end,
+        log = {
+          level = vim.log.levels.WARN,
+          to_file = false,
+          file_path = nil,
+          prefix = "MCPHub"
+        },
+      })
+    end
   }
 }
