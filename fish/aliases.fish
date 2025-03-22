@@ -19,7 +19,6 @@ abbr dpaste curl -s -F "content=<-" https://dpaste.com/api/v2/
 abbr e vim
 abbr f fzf
 abbr h history
-abbr install brew install
 abbr l ls -la
 abbr lg "ls -la | grep"
 abbr ll ls -lG
@@ -48,8 +47,6 @@ abbr tnt task add due:eod
 abbr tt task ls due.before:tomorrow
 abbr tw task ls due.before:soww
 abbr uc uncommitted
-abbr uninstall brew remove
-abbr upgrade-system brew upgrade
 abbr vg vim Gemfile
 abbr vim nvim
 abbr vit vim ~/.tmux.conf
