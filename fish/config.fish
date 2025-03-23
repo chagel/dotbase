@@ -9,7 +9,7 @@ end
 source $HOME/.config/fish/aliases.fish
 source $HOME/.config/fish/user.fish
 
-set -gx EDITOR vim
+set -gx EDITOR nvim
 set -gx GPG_TTY (tty)
 
 set -U nvm_default_version lts/iron
