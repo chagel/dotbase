@@ -12,5 +12,5 @@ source $HOME/.config/fish/user.fish
 set -gx EDITOR nvim
 set -gx GPG_TTY (tty)
 
-set -U nvm_default_version lts/iron
+set -U nvm_default_version v20.19.0
 set -U fish_greeting ""

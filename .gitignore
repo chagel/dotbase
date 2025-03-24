@@ -17,5 +17,9 @@ tmux/plugins
 profile/
 password*
 
+fish/completions
+fish/functions
+fish/conf.d
+fish/themes
 fish/fish_variables
 fish/user.fish
