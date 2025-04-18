@@ -33,8 +33,7 @@ return {
     "folke/twilight.nvim",
   },
   {
-    -- "folke/zen-mode.nvim", 
-    "HakonHarnes/zen-mode.nvim",
+    "folke/zen-mode.nvim",
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
@@ -78,7 +77,7 @@ return {
         -- - allow_remote_control socket-only
         -- - listen_on unix:/tmp/kitty
         kitty = {
-          enabled = true,
+          enabled = false,
           font = "+4", -- font size increment
         },
         -- this will change the font size on alacritty when in zen mode
