@@ -8,9 +8,9 @@ end
 
 source $HOME/.config/fish/aliases.fish
 source $HOME/.config/fish/user.fish
+mise activate fish | source
 
 set -gx EDITOR nvim
 set -gx GPG_TTY (tty)
 
-set -U nvm_default_version v20.19.0
 set -U fish_greeting ""

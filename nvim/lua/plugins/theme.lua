@@ -90,7 +90,7 @@ return {
           lualine_a = {{
             'tabs',
             mode = 2,
-            max_length = vim.o.columns - 40,
+            max_length = vim.o.columns,
             tab_max_length = 40,
             use_mode_colors = true,
             component_separators = { left = ' ', right = ' '},
