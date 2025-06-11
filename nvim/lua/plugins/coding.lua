@@ -87,12 +87,36 @@ return {
     event = "VeryLazy",
     lazy = false,
     opts = {
-      provider = "claude", -- "claude" or "openai" or "azure"
-      claude = {
-        endpoint = "https://api.anthropic.com",
-        model = "claude-3-7-sonnet-20250219",
-        temperature = 0,
-        max_tokens = 4096,
+      providers = {
+        claude = {
+          endpoint = "https://api.anthropic.com",
+          model = "claude-3-7-sonnet-20250219",
+          extra_request_body = {
+            temperature = 0,
+            max_tokens = 4096,
+          }
+        },
+        openai = {
+          endpoint = "https://api.openai.com/v1",
+          model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
+          timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+          extra_request_body = {
+            temperature = 0,
+            max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+            reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+          },
+        },
+        ollama = {
+          endpoint = "http://127.0.0.1:11434",
+          timeout = 30000, -- Timeout in milliseconds
+          extra_request_body = {
+            options = {
+              temperature = 0.75,
+              num_ctx = 20480,
+              keep_alive = "5m",
+            },
+          },
+        },
       },
       highlights = {
         diff = {
