@@ -122,6 +122,7 @@ return {
       --  By default, Neovim doesn't support everything that is in the LSP specification.
       --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
       --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
+      vim.lsp.set_log_level("WARN")
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
@@ -149,24 +150,10 @@ return {
         -- tsserver = {},
         --
         --
-        solargraph = {
-          cmd = { os.getenv("HOME") .. "/.rbenv/shims/solargraph", "stdio" },
-          root_dir = lspconfig.util.root_pattern("Gemfile", ".git", "."),
-          settings = {
-            solargraph = {
-              autoformat = true,
-              completion = true,
-              diagnostics = true,
-              folding = true,
-              references = true,
-              rename = true,
-              symbols = true,
-            },
-          },
-        },
+        ruby_lsp = {},
         rubocop = {
-          cmd = { "bundle", "exec", "rubocop", "--lsp" },
-          root_dir = lspconfig.util.root_pattern("Gemfile", ".git", "."),
+          -- cmd = { "bundle", "exec", "rubocop", "--lsp" },
+          -- root_dir = lspconfig.util.root_pattern("Gemfile", ".git", "."),
         },
         lua_ls = {
           -- cmd = {...},
@@ -197,7 +184,7 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua',
-        'solargraph',
+        'ruby-lsp',
         'rubocop',
         'ts_ls',
         'pyright',
