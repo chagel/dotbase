@@ -5,14 +5,14 @@ Multi-system Dotfiles management for minimalist.
 ## Philosophy
 
 My approach to dotfiles centers around simplicity, modularity, and consistency - Yes, I believe in KISS and the Unix philosophy. 
-I bloged why I chose to use this approach [here](https://gchen.co/2024/06/07/dotfiles.html).
+I bloged why I chose to use this approach [here](https://gchen.me/2024/06/07/dotfiles).
 
 ## What is this?
 
 This repository is a collection of my base dotfiles and configurations that I use across multiple systems. 
 For other programs, I maintain separate repositories across specific OS.
 
-I have been using [Linux](https://gchen.co/2024/06/06/why-i-choose-linux.html), tmux and Vi/Vim for two decades, and I maintained my own dotfiles for a long time. If you are new to Neovim from Vi/Vim, you may find my another [repo](https://github.com/chagel/nvim-bootstrap) useful.
+I have been using [Linux](https://gchen.me/2024/06/06/why-i-choose-linux), tmux and Vi/Vim for two decades, and I maintained my own dotfiles for a long time. If you are new to Neovim from Vi/Vim, you may find my another [repo](https://github.com/chagel/nvim-bootstrap) useful.
 
 Windows(OS) > Panes(Multiplexer) > Buffers(Editor)
 
