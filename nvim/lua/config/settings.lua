@@ -1,2 +1,2 @@
--- set theme and other settings/funcs
-vim.cmd [[colorscheme catppuccin]]
+-- The colorscheme is applied by lua/plugins/theme.lua, which picks between the
+-- generated theme and catppuccin. Setting it here would override that choice.
