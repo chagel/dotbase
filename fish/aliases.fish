@@ -3,6 +3,7 @@ abbr dp "curl -s -F 'content=<-' https://dpaste.com/api/v2/"
 abbr e vim
 abbr f fzf
 abbr gct "git diff HEAD | llm -t git | git commit -e -F -"
+abbr gst "git status"
 abbr h history
 abbr l ls -la
 abbr lg "ls -la | grep"
